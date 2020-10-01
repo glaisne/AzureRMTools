@@ -171,9 +171,9 @@ function Find-AzureRmResource
             }
         
             # Test if we are in the proper subscription context
-            if ($(get-azurermcontext).subscription.id -ne $SubscriptionId)
+            if ($(Get-AzureRMcontext).subscription.id -ne $SubscriptionId)
             {
-                Write-warning "Failed to set the proper context : ($($(get-azurermcontext).subscription.name))"
+                Write-warning "Failed to set the proper context : ($($(Get-AzureRMcontext).subscription.name))"
                 continue
             }
 
@@ -197,7 +197,7 @@ function Find-AzureRmResource
                 {
                     foreach ($Resource in $ResourceName)
                     {
-                        get-AzureRmResource -ResourceGroupName $ResourceGroup.ResourceGroupName |? {$_.Name -like $Resource}
+                        Get-AzureRmResource -ResourceGroupName $ResourceGroup.ResourceGroupName |? {$_.Name -like $Resource}
                     }
                 }
 
@@ -209,7 +209,7 @@ function Find-AzureRmResource
 
                 if ($PSBoundParameters.ContainsKey('IPAddress') -or $PSBoundParameters.ContainsKey('DNSName'))
                 {
-                    $Resources = get-azurermResource -ResourceGroupName $ResourceGroup.ResourceGroupName |? {$_.ResourceType -in $ResourceTypes}
+                    $Resources = Get-AzureRMResource -ResourceGroupName $ResourceGroup.ResourceGroupName |? {$_.ResourceType -in $ResourceTypes}
 
                     foreach ($Resource in $Resources)
                     {

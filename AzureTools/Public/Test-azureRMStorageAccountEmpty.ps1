@@ -33,7 +33,7 @@ function Test-azureRMStorageAccountEmpty
     {
         try
         {
-            $sa = get-azurermstorageAccount -ResourceGroupName $ResourceGroupName -Name $Name
+            $sa = Get-AzureRMstorageAccount -ResourceGroupName $ResourceGroupName -Name $Name
         }
         catch
         {

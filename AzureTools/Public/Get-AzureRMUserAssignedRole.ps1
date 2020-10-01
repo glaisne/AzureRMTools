@@ -210,14 +210,14 @@ function Get-AzureRMUserAssignedRole
             }
         
             # Test if we are in the proper subscription context
-            if ($(get-azurermcontext).subscription.id -ne $Subscription_Id)
+            if ($(Get-AzureRMcontext).subscription.id -ne $Subscription_Id)
             {
-                Write-warning "Failed to set the proper context : ($($(get-azurermcontext).subscription.name))"
+                Write-warning "Failed to set the proper context : ($($(Get-AzureRMcontext).subscription.name))"
                 continue
             }
             else
             {
-                Write-Verbose "[$(Get-Date -format G)] Set the proper context $($(get-azurermcontext).subscription.name)"
+                Write-Verbose "[$(Get-Date -format G)] Set the proper context $($(Get-AzureRMcontext).subscription.name)"
             }
         
 

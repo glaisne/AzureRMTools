@@ -141,14 +141,14 @@ function Get-AzureRMRbacRole
             }
 
             # Test if we are in the proper subscription context
-            if ($(get-azurermcontext).subscription.id -ne $SubscriptionId)
+            if ($(Get-AzureRMcontext).subscription.id -ne $SubscriptionId)
             {
-                Write-warning "Failed to set the proper context : ($($(get-azurermcontext).subscription.name))"
+                Write-warning "Failed to set the proper context : ($($(Get-AzureRMcontext).subscription.name))"
                 continue
             }
             else
             {
-                Write-Verbose "[$(Get-Date -format G)] Set the proper context $($(get-azurermcontext).subscription.name)"
+                Write-Verbose "[$(Get-Date -format G)] Set the proper context $($(Get-AzureRMcontext).subscription.name)"
             }
 
 

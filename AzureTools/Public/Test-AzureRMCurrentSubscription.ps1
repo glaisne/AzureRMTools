@@ -23,7 +23,7 @@ function Test-AzureRMCurrentSubscription
 
     )
 
-    $context = get-azurermContext
+    $context = Get-AzureRMContext
     switch ($PSCmdlet.ParameterSetName)
     {
         'Id'
